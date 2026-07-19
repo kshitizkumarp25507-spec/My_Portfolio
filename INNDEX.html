@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kshitiz Kumar — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#111111',
+            charcoal: '#444444',
+            steel: '#777777',
+            cloud: '#F9FAFB',
+            cool: '#E5E7EB',
+            primary: '#E43D30',
+            coral: '#F15A3C',
+            orange: '#F97316',
+            salmon: '#FF6B6B'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          letterSpacing: {
+            tight: '-0.02em',
+            tighter: '-0.04em'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    .ken-burns { animation: kenBurns 20s ease-in-out alternate infinite; }
+    .anim-delay-100 { animation-delay: 0.1s; }
+    .anim-delay-200 { animation-delay: 0.2s; }
+    .anim-delay-300 { animation-delay: 0.3s; }
+    .anim-delay-400 { animation-delay: 0.4s; }
+    .anim-delay-500 { animation-delay: 0.5s; }
+    .anim-delay-600 { animation-delay: 0.6s; }
+    .anim-hidden { opacity: 0; }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #E43D30 0%, #F15A3C 50%, #F97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .bg-gradient-brand {
+      background: linear-gradient(90deg, #E43D30 0%, #F15A3C 50%, #F97316 100%);
+    }
+    .bg-gradient-brand-hover:hover {
+      background: linear-gradient(90deg, #E43D30 0%, #F15A3C 100%);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.05);
+    }
+    .glass-nav.scrolled {
+      box-shadow: 0 4px 20px -2px rgba(17, 17, 17, 0.08);
+    }
+    .glass-nav.dark-nav {
+      background: rgba(17, 17, 17, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .glass-nav.dark-nav.scrolled {
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.05);
+      box-shadow: 0 4px 20px -2px rgba(17, 17, 17, 0.08);
+    }
+    .glass-nav.dark-nav .nav-text { color: rgba(255,255,255,0.8); }
+    .glass-nav.dark-nav .nav-text:hover { color: #fff; }
+    .glass-nav.dark-nav .nav-brand { color: #fff; }
+    .glass-nav.dark-nav .nav-cta { color: #fff; }
+    .glass-nav.dark-nav .menu-bar { background: #fff; }
+
+    .grid-bg {
+      background-image: linear-gradient(rgba(241,90,60,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(241,90,60,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(228,61,48,0.15);
+      border-color: #F15A3C;
+    }
+    .project-card:hover .project-image { transform: scale(1.05); }
+    .project-card .project-image { transition: transform 0.5s ease; }
+
+    .skill-tag { transition: all 0.2s ease; }
+    .skill-tag:hover {
+      background: linear-gradient(90deg, #E43D30 0%, #F15A3C 50%, #F97316 100%);
+      color: white;
+      border-color: transparent;
+      transform: translateY(-1px);
+    }
+
+    .cert-card { transition: all 0.3s ease; }
+    .cert-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(228,61,48,0.12);
+      border-color: #F15A3C;
+    }
+
+    .timeline-item { position: relative; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #E43D30 0%, #F97316 100%);
+      border: 3px solid #F9FAFB;
+      z-index: 1;
+    }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #E43D30, #F97316);
+      transition: width 0.3s ease;
+      border-radius: 1px;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    .toast {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .photo-frame { position: relative; overflow: hidden; }
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+      pointer-events: none;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #F9FAFB; }
+    ::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #777777; }
+  </style>
+</head>
+<body class="bg-cloud font-sans text-charcoal antialiased">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar" class="glass-nav dark-nav fixed top-0 left-0 right-0 z-50 h-20 flex items-center transition-all duration-500">
+    <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+      <a href="#hero" class="nav-brand font-display font-bold text-xl tracking-tight flex items-center gap-2">
+        <span class="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center text-white text-sm font-bold">K</span>
+        kshitiz.dev
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="nav-link nav-text text-sm font-medium text-steel hover:text-midnight transition-colors">About</a>
+        <a href="#skills" class="nav-link nav-text text-sm font-medium text-steel hover:text-midnight transition-colors">Skills</a>
+        <a href="#experience" class="nav-link nav-text text-sm font-medium text-steel hover:text-midnight transition-colors">Experience</a>
+        <a href="#education" class="nav-link nav-text text-sm font-medium text-steel hover:text-midnight transition-colors">Education</a>
+        <a href="#projects" class="nav-link nav-text text-sm font-medium text-steel hover:text-midnight transition-colors">Projects</a>
+        <a href="#contact" class="nav-link nav-text text-sm font-medium text-steel hover:text-midnight transition-colors">Contact</a>
+        <a href="#contact" class="nav-cta bg-gradient-brand bg-gradient-brand-hover text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:brightness-110 hover:-translate-y-0.5 transition-all hover:shadow-[0_0_20px_rgba(241,90,60,0.4)]">
+          Get in Touch
+        </a>
+      </div>
+      <button id="menuBtn" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-white/10 transition-colors" aria-label="Toggle menu">
+        <span id="menuBar1" class="menu-bar w-5 h-0.5 bg-midnight rounded transition-all duration-300"></span>
+        <span id="menuBar2" class="menu-bar w-5 h-0.5 bg-midnight rounded transition-all duration-300"></span>
+        <span id="menuBar3" class="menu-bar w-5 h-0.5 bg-midnight rounded transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 bottom-0 w-72 bg-white z-[60] shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between p-6 border-b border-cool">
+      <span class="font-display font-bold text-lg text-midnight">Menu</span>
+      <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-black/5 transition-colors" aria-label="Close menu">
+        <span class="iconify w-5 h-5 text-midnight" data-icon="lucide:x"></span>
+      </button>
+    </div>
+    <div class="flex flex-col p-6 gap-2">
+      <a href="#about" class="mobile-nav-link text-base font-medium text-charcoal hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all">About</a>
+      <a href="#skills" class="mobile-nav-link text-base font-medium text-charcoal hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all">Skills</a>
+      <a href="#experience" class="mobile-nav-link text-base font-medium text-charcoal hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all">Experience</a>
+      <a href="#education" class="mobile-nav-link text-base font-medium text-charcoal hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all">Education</a>
+      <a href="#projects" class="mobile-nav-link text-base font-medium text-charcoal hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all">Projects</a>
+      <a href="#contact" class="mobile-nav-link text-base font-medium text-charcoal hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-xl transition-all">Contact</a>
+    </div>
+    <div class="mt-auto p-6 border-t border-cool">
+      <a href="#contact" class="mobile-nav-link bg-gradient-brand text-white text-center text-sm font-semibold px-5 py-3 rounded-xl block hover:brightness-110 transition-all">Get in Touch</a>
+    </div>
+  </div>
+  <div id="menuOverlay" class="fixed inset-0 bg-midnight/30 z-[55] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://z-cdn-media.chatglm.cn/files/7067990c-cc90-4517-a888-6213255e5584.JPG?auth_key=1884459520-aa190b50223a4d9096bd704c59343e4e-0-6934b8ef44efad066c6f13f8cc8d1bc6" alt="Mountain landscape" class="w-full h-full object-cover ken-burns">
+      <div class="absolute inset-0 bg-gradient-to-r from-midnight/90 via-midnight/70 to-midnight/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-midnight/30"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full px-6 relative z-10 pt-20">
+      <div class="max-w-2xl">
+        <div class="anim-hidden animate-fade-in-up inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-8">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          <span class="text-xs font-semibold text-white/80 uppercase tracking-widest">Open to Opportunities</span>
+        </div>
+
+        <h1 class="anim-hidden animate-fade-in-up anim-delay-100 font-display font-bold text-5xl md:text-7xl text-white tracking-tighter leading-[1.1] mb-6">
+          Kshitiz<br>Kumar
+        </h1>
+
+        <p class="anim-hidden animate-fade-in-up anim-delay-200 text-lg md:text-xl text-white/70 font-light leading-relaxed mb-4">
+          IIM Tiruchirappalli '27 &nbsp;·&nbsp; Marketing & Strategy &nbsp;·&nbsp; Ex-Armefin
+        </p>
+        <p class="anim-hidden animate-fade-in-up anim-delay-300 text-base text-white/50 font-light leading-relaxed max-w-xl mb-10">
+          Growth-oriented professional with 2 years across investor relations, market analysis, and strategic outreach — contributing to $1M+ in AUM.
+        </p>
+
+        <div class="anim-hidden animate-fade-in-up anim-delay-400 flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-16">
+          <a href="#experience" class="bg-gradient-brand bg-gradient-brand-hover text-white font-semibold px-8 py-4 rounded-xl hover:brightness-110 hover:-translate-y-0.5 transition-all hover:shadow-[0_0_20px_rgba(241,90,60,0.4)] flex items-center gap-2">
+            View My Experience
+            <span class="iconify w-4 h-4" data-icon="lucide:arrow-down"></span>
+          </a>
+          <a href="#contact" class="group bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2">
+            Get In Touch
+            <span class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+          </a>
+        </div>
+
+        <div class="anim-hidden animate-fade-in-up anim-delay-500 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-xl">
+          <div>
+            <div class="font-display font-bold text-3xl text-white tracking-tight">2+</div>
+            <div class="text-xs text-white/50 mt-1">Years Exp.</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-3xl text-white tracking-tight">$1M+</div>
+            <div class="text-xs text-white/50 mt-1">AUM Onboarded</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-3xl text-white tracking-tight">150+</div>
+            <div class="text-xs text-white/50 mt-1">Investors</div>
+          </div>
+          <div>
+            <div class="font-display font-bold text-3xl text-gradient tracking-tight">🥇</div>
+            <div class="text-xs text-white/50 mt-1">Gold Medal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 anim-hidden animate-fade-in-up anim-delay-600">
+      <span class="text-xs text-white/40 uppercase tracking-widest">Scroll</span>
+      <div class="w-5 h-8 border-2 border-white/20 rounded-full flex items-start justify-center p-1">
+        <div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ME ===== -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="scroll-reveal grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div class="relative">
+          <div class="photo-frame relative rounded-2xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-cool aspect-[4/5] max-w-md mx-auto lg:mx-0">
+            <img src="https://z-cdn-media.chatglm.cn/files/b756f876-c60e-4209-8f6d-078b7af54bd7.jpeg?auth_key=1884459520-f537bacc2b0a42d2a11320e936fb4ee4-0-d9e1910f25ec12cc631f7c2a09bd5531" alt="Kshitiz Kumar at IIM Trichy" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-midnight/10 to-transparent"></div>
+          </div>
+          <div class="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-2xl p-5 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-cool animate-float">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-brand rounded-xl flex items-center justify-center">
+                <span class="iconify w-5 h-5 text-white" data-icon="lucide:trophy"></span>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-midnight">Gold Medalist</div>
+                <div class="text-xs text-steel">BBA Batch 2019-22</div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -top-4 -left-4 lg:-left-6 bg-white rounded-2xl p-4 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-cool animate-float" style="animation-delay: 1s;">
+            <div class="flex items-center gap-2">
+              <span class="iconify w-5 h-5 text-primary" data-icon="lucide:graduation-cap"></span>
+              <span class="text-xs font-bold text-midnight">IIM Trichy '27</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-6">
+            <span class="text-xs font-semibold text-primary uppercase tracking-widest">About Me</span>
+          </div>
+          <h2 class="font-display font-bold text-4xl text-midnight tracking-tight mb-6">
+            Bridging analytics<br>with <span class="text-gradient">strategic growth</span>
+          </h2>
+          <p class="text-lg text-steel font-light leading-relaxed mb-6">
+            With 2 years of experience at Armefin, I've worked across investor relations, market analysis, and strategic outreach — contributing to onboarding $1M+ in AUM through investor qualification and relationship management initiatives.
+          </p>
+          <p class="text-base text-steel leading-relaxed mb-6">
+            Currently pursuing my MBA at the Indian Institute of Management Tiruchirappalli, I am working on market expansion and partnership analysis at TSV Global. My interests lie in growth strategy, consulting, and market intelligence — areas where data meets decision-making.
+          </p>
+          <p class="text-base text-steel leading-relaxed mb-8">
+            I graduated with a Gold Medal in BBA from The ICFAI University, Dehradun, and have since built a foundation that combines financial acumen with marketing insight and a data-first approach to problem-solving.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="#experience" class="group inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+              See my full experience
+              <span class="iconify w-4 h-4" data-icon="lucide:arrow-right"></span>
+            </a>
+            <a href="https://www.linkedin.com/in/kshitizkumar31" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 text-steel font-semibold hover:text-primary hover:gap-3 transition-all">
+              <span class="iconify w-4 h-4" data-icon="lucide:linkedin"></span>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTO + QUOTE STRIP ===== -->
+  <section class="py-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="scroll-reveal grid md:grid-cols-2 gap-4">
+        <div class="photo-frame relative rounded-2xl overflow-hidden aspect-[16/10] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-cool">
+          <img src="https://z-cdn-media.chatglm.cn/files/215895d9-3cf0-4302-9f86-13b4f620209c.JPG?auth_key=1884459520-fc91606bb7b54d85afcc7a50a5a44ecf-0-2644cf0a8df04aa66dbcae56da689675" alt="Kshitiz in outdoor setting" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-midnight/50 to-transparent"></div>
+          <div class="absolute bottom-4 left-4">
+            <span class="text-xs font-semibold text-white/80 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+              <span class="iconify w-3 h-3 inline-block mr-1 -mt-0.5" data-icon="lucide:mountain"></span>
+              Beyond the desk
+            </span>
+          </div>
+        </div>
+
+        <div class="bg-midnight rounded-2xl p-8 md:p-10 flex flex-col justify-center relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-[60px] pointer-events-none"></div>
+          <span class="iconify w-10 h-10 text-primary/40 mb-4" data-icon="lucide:quote"></span>
+          <p class="text-white/90 font-display font-semibold text-xl md:text-2xl leading-relaxed mb-4 relative z-10">
+            Data tells you what happened. Strategy tells you what to do next.
+          </p>
+          <p class="text-white/40 text-sm relative z-10">— My approach to every problem</p>
+          <div class="flex items-center gap-4 mt-6 relative z-10">
+            <div class="flex items-center gap-2 text-white/50 text-xs">
+              <span class="iconify w-4 h-4" data-icon="lucide:target"></span> Growth Strategy
+            </div>
+            <div class="flex items-center gap-2 text-white/50 text-xs">
+              <span class="iconify w-4 h-4" data-icon="lucide:bar-chart-3"></span> Data-Driven
+            </div>
+            <div class="flex items-center gap-2 text-white/50 text-xs">
+              <span class="iconify w-4 h-4" data-icon="lucide:lightbulb"></span> Consulting
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-salmon/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-xs font-semibold text-primary uppercase tracking-widest">Skills & Certifications</span>
+        </div>
+        <h2 class="font-display font-bold text-4xl text-midnight tracking-tight mb-4">
+          What I <span class="text-gradient">bring</span>
+        </h2>
+        <p class="text-lg text-steel font-light max-w-2xl mx-auto">Core competencies honed through professional experience and continuous learning.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 scroll-reveal">
+        <div>
+          <h3 class="font-display font-bold text-xl text-midnight mb-6 flex items-center gap-3">
+            <div class="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
+              <span class="iconify w-4 h-4 text-white" data-icon="lucide:zap"></span>
+            </div>
+            Core Skills
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Trade Analytics</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Data Visualization</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Market Analysis</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Investor Relations</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Growth Strategy</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Market Intelligence</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Dashboard Development</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Partnership Analysis</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Social Media Marketing</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Financial Analysis</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Consulting</span>
+            <span class="skill-tag px-5 py-2.5 bg-cloud border border-cool rounded-xl text-sm font-medium text-charcoal cursor-default">Microsoft Excel</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-display font-bold text-xl text-midnight mb-6 flex items-center gap-3">
+            <div class="w-8 h-8 bg-midnight rounded-lg flex items-center justify-center">
+              <span class="iconify w-4 h-4 text-white" data-icon="lucide:award"></span>
+            </div>
+            Certifications
+          </h3>
+          <div class="space-y-3">
+            <div class="cert-card bg-cloud rounded-xl border border-cool p-4 flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="iconify w-5 h-5 text-primary" data-icon="lucide:globe"></span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-midnight">International Business Management</div>
+                <div class="text-xs text-steel mt-0.5">Professional Certification</div>
+              </div>
+            </div>
+            <div class="cert-card bg-cloud rounded-xl border border-cool p-4 flex items-start gap-4">
+              <div class="w-10 h-10 bg-orange/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="iconify w-5 h-5 text-orange" data-icon="lucide:megaphone"></span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-midnight">Social Media Marketing: Strategy and Optimization</div>
+                <div class="text-xs text-steel mt-0.5">Professional Certification</div>
+              </div>
+            </div>
+            <div class="cert-card bg-cloud rounded-xl border border-cool p-4 flex items-start gap-4">
+              <div class="w-10 h-10 bg-coral/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="iconify w-5 h-5 text-coral" data-icon="lucide:table-2"></span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-midnight">Microsoft Excel for Finance, Accounting & Financial Analysis</div>
+                <div class="text-xs text-steel mt-0.5">Professional Certification</div>
+              </div>
+            </div>
+            <div class="cert-card bg-cloud rounded-xl border border-cool p-4 flex items-start gap-4">
+              <div class="w-10 h-10 bg-salmon/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="iconify w-5 h-5 text-salmon" data-icon="lucide:brain-circuit"></span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-midnight">Generative AI for Business Leaders</div>
+                <div class="text-xs text-steel mt-0.5">Professional Certification</div>
+              </div>
+            </div>
+            <div class="cert-card bg-cloud rounded-xl border border-cool p-4 flex items-start gap-4">
+              <div class="w-10 h-10 bg-primary/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="iconify w-5 h-5 text-primary" data-icon="lucide:pen-tool"></span>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-midnight">How to Research and Write Using Generative AI Tools</div>
+                <div class="text-xs text-steel mt-0.5">Professional Certification</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-reveal mt-16">
+        <div class="bg-gradient-brand rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 text-white">
+          <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+            <span class="text-3xl">🥇</span>
+          </div>
+          <div class="text-center md:text-left">
+            <h3 class="font-display font-bold text-2xl mb-1">Gold Medal Recipient</h3>
+            <p class="text-white/80 text-base">Awarded the Gold Medal for outstanding academic performance in the Undergraduate BBA program (Batch 2019–2022) at The ICFAI University, Dehradun.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="py-24 relative grid-bg">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-xs font-semibold text-primary uppercase tracking-widest">Experience</span>
+        </div>
+        <h2 class="font-display font-bold text-4xl text-midnight tracking-tight mb-4">
+          Professional <span class="text-gradient">journey</span>
+        </h2>
+        <p class="text-lg text-steel font-light max-w-2xl mx-auto">From investor relations to market expansion — a track record of driving measurable impact.</p>
+      </div>
+
+      <div class="relative border-l-2 border-cool pl-8 space-y-12 scroll-reveal">
+        <div class="timeline-item">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="text-xs font-semibold text-white bg-gradient-brand px-2.5 py-1 rounded-md">Current</span>
+            <span class="text-xs text-steel">September 2025 — Present</span>
+          </div>
+          <h4 class="font-display font-bold text-xl text-midnight mb-1">Media & Public Relations Coordinator</h4>
+          <p class="text-sm font-medium text-primary mb-3">Indian Institute of Management Tiruchirappalli</p>
+          <p class="text-xs text-steel mb-3 flex items-center gap-1.5"><span class="iconify w-3 h-3" data-icon="lucide:map-pin"></span> Tiruchirappalli, Tamil Nadu</p>
+          <ul class="space-y-2">
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Managed visual storytelling and event coverage initiatives to strengthen campus engagement and institutional branding</li>
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Worked closely with diverse student cohorts to ensure seamless coordination and consistent outreach</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-xs text-steel mb-1">April 2026 — June 2026</div>
+          <h4 class="font-display font-bold text-xl text-midnight mb-1">Marketing Intern</h4>
+          <p class="text-sm font-medium text-primary mb-3">TSV Global Solutions Pvt Ltd</p>
+          <p class="text-xs text-steel mb-3 flex items-center gap-1.5"><span class="iconify w-3 h-3" data-icon="lucide:map-pin"></span> Chennai, Tamil Nadu</p>
+          <ul class="space-y-2">
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Conducted structured market and partnership analysis evaluating opportunities on commercial viability, strategic fit, and market attractiveness</li>
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Streamlined research workflows by converting fragmented trade datasets into structured analytical insights</li>
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Developed dashboard-based analytical workflows for trade patterns, market trends, and opportunity identification</li>
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Built scalable trade intelligence systems processing 20,000+ Trade Vision records, reducing manual effort significantly</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-xs text-steel mb-1">July 2023 — May 2025</div>
+          <h4 class="font-display font-bold text-xl text-midnight mb-1">Investment Associate</h4>
+          <p class="text-sm font-medium text-primary mb-3">Armefin</p>
+          <ul class="space-y-2">
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Sourced and engaged 150+ NRI prospects, building a qualified investment pipeline</li>
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Analyzed and shortlisted 100+ investor profiles, improving targeting efficiency by ~30%</li>
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Contributed to onboarding investors driving $1M+ in AUM</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-xs text-steel mb-1">June 2023 — May 2025</div>
+          <h4 class="font-display font-bold text-xl text-midnight mb-1">Wealth Management Associate</h4>
+          <p class="text-sm font-medium text-primary mb-3">Armefin</p>
+          <p class="text-xs text-steel mb-3 flex items-center gap-1.5"><span class="iconify w-3 h-3" data-icon="lucide:map-pin"></span> India</p>
+          <ul class="space-y-2">
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Supported wealth management operations and client relationship activities</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="text-xs text-steel mb-1">September 2021 — October 2021</div>
+          <h4 class="font-display font-bold text-xl text-midnight mb-1">Social Media Marketing Intern</h4>
+          <p class="text-sm font-medium text-primary mb-3">Little Hand Foundation</p>
+          <ul class="space-y-2">
+            <li class="text-sm text-steel leading-relaxed flex items-start gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>Crafted compelling social media captions and forged influencer partnerships on Instagram</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-salmon/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-xs font-semibold text-primary uppercase tracking-widest">Education</span>
+        </div>
+        <h2 class="font-display font-bold text-4xl text-midnight tracking-tight mb-4">
+          Academic <span class="text-gradient">background</span>
+        </h2>
+        <p class="text-lg text-steel font-light max-w-2xl mx-auto">A strong academic foundation supporting a career in business and strategy.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 scroll-reveal">
+        <div class="bg-cloud rounded-2xl border border-cool p-8 hover:border-primary/30 hover:shadow-[0_20px_40px_-10px_rgba(228,61,48,0.1)] transition-all group relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-brand/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 bg-gradient-brand rounded-xl flex items-center justify-center mb-5">
+              <span class="iconify w-6 h-6 text-white" data-icon="lucide:graduation-cap"></span>
+            </div>
+            <div class="text-xs font-semibold text-primary bg-primary/5 px-2.5 py-1 rounded-md inline-block mb-3">2025 — 2027</div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-1">MBA</h3>
+            <p class="text-sm font-medium text-primary mb-3">IIM Tiruchirappalli</p>
+            <p class="text-sm text-steel leading-relaxed">Master of Business Administration — one of India's premier management institutions.</p>
+          </div>
+        </div>
+
+        <div class="bg-cloud rounded-2xl border border-cool p-8 hover:border-primary/30 hover:shadow-[0_20px_40px_-10px_rgba(228,61,48,0.1)] transition-all group relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-brand/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 bg-midnight rounded-xl flex items-center justify-center mb-5">
+              <span class="iconify w-6 h-6 text-white" data-icon="lucide:trophy"></span>
+            </div>
+            <div class="text-xs font-semibold text-primary bg-primary/5 px-2.5 py-1 rounded-md inline-block mb-3">2019 — 2022</div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-1">BBA, Marketing</h3>
+            <p class="text-sm font-medium text-primary mb-3">The ICFAI University, Dehradun</p>
+            <p class="text-sm text-steel leading-relaxed">Graduated with a <strong class="text-midnight">Gold Medal</strong> for outstanding academic performance.</p>
+          </div>
+        </div>
+
+        <div class="bg-cloud rounded-2xl border border-cool p-8 hover:border-primary/30 hover:shadow-[0_20px_40px_-10px_rgba(228,61,48,0.1)] transition-all group relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-brand/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 bg-steel/10 rounded-xl flex items-center justify-center mb-5">
+              <span class="iconify w-6 h-6 text-steel" data-icon="lucide:school"></span>
+            </div>
+            <div class="text-xs font-semibold text-steel bg-cool px-2.5 py-1 rounded-md inline-block mb-3">2007 — 2019</div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-1">Intermediate</h3>
+            <p class="text-sm font-medium text-primary mb-3">St. Michael's High School</p>
+            <p class="text-sm text-steel leading-relaxed">PCM with Economics — building early analytical and quantitative foundations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="py-24 relative grid-bg">
+    <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-orange/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-xs font-semibold text-primary uppercase tracking-widest">Projects</span>
+        </div>
+        <h2 class="font-display font-bold text-4xl text-midnight tracking-tight mb-4">
+          Key <span class="text-gradient">initiatives</span>
+        </h2>
+        <p class="text-lg text-steel font-light max-w-2xl mx-auto">Highlights from professional engagements showcasing analytical depth and strategic impact.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 scroll-reveal">
+        <div class="project-card bg-white rounded-2xl border border-cool overflow-hidden">
+          <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/5 to-orange/5 flex items-center justify-center">
+            <span class="iconify w-16 h-16 text-primary/20" data-icon="lucide:bar-chart-3"></span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-primary bg-primary/5 px-2.5 py-1 rounded-md">TSV Global</span>
+              <span class="text-xs text-steel">2026</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-2">Trade Intelligence Dashboard</h3>
+            <p class="text-sm text-steel leading-relaxed mb-4">Built scalable trade intelligence reporting systems processing 20,000+ Trade Vision records with dashboard-based analytical workflows.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Data Visualization</span>
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Market Analysis</span>
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Trade Analytics</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-1 text-primary font-semibold"><span class="iconify w-4 h-4" data-icon="lucide:database"></span> 20k+ Records</div>
+              <div class="flex items-center gap-1 text-steel"><span class="iconify w-4 h-4" data-icon="lucide:trending-up"></span> Efficiency ↑</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl border border-cool overflow-hidden">
+          <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-coral/5 to-salmon/5 flex items-center justify-center">
+            <span class="iconify w-16 h-16 text-coral/20" data-icon="lucide:users"></span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-orange bg-orange/5 px-2.5 py-1 rounded-md">Armefin</span>
+              <span class="text-xs text-steel">2023–2025</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-2">Investor Pipeline & AUM Growth</h3>
+            <p class="text-sm text-steel leading-relaxed mb-4">Sourced and qualified 150+ NRI investors through structured outreach, contributing to $1M+ in AUM with ~30% targeting improvement.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Investor Relations</span>
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Pipeline Management</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-1 text-primary font-semibold"><span class="iconify w-4 h-4" data-icon="lucide:dollar-sign"></span> $1M+ AUM</div>
+              <div class="flex items-center gap-1 text-steel"><span class="iconify w-4 h-4" data-icon="lucide:target"></span> 150+</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl border border-cool overflow-hidden">
+          <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-salmon/5 to-primary/5 flex items-center justify-center">
+            <span class="iconify w-16 h-16 text-salmon/20" data-icon="lucide:search"></span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-coral bg-salmon/5 px-2.5 py-1 rounded-md">TSV Global</span>
+              <span class="text-xs text-steel">2026</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-2">Market Expansion Analysis</h3>
+            <p class="text-sm text-steel leading-relaxed mb-4">Structured market and partnership analysis evaluating expansion opportunities on commercial viability and strategic fit.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Market Research</span>
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Partnership Analysis</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-1 text-primary font-semibold"><span class="iconify w-4 h-4" data-icon="lucide:git-branch"></span> Cross-functional</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl border border-cool overflow-hidden">
+          <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-orange/5 to-coral/5 flex items-center justify-center">
+            <span class="iconify w-16 h-16 text-orange/20" data-icon="lucide:camera"></span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-primary bg-primary/5 px-2.5 py-1 rounded-md">IIM Trichy</span>
+              <span class="text-xs text-steel">2025–Present</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-midnight mb-2">Campus Branding & Visual Storytelling</h3>
+            <p class="text-sm text-steel leading-relaxed mb-4">Led visual storytelling and event coverage to strengthen campus engagement and institutional branding.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Public Relations</span>
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Branding</span>
+              <span class="text-xs bg-cloud border border-cool px-2 py-0.5 rounded text-steel">Content</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-1 text-primary font-semibold"><span class="iconify w-4 h-4" data-icon="lucide:image"></span> Visual Storytelling</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-salmon/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-6">
+          <span class="text-xs font-semibold text-primary uppercase tracking-widest">Contact</span>
+        </div>
+        <h2 class="font-display font-bold text-4xl text-midnight tracking-tight mb-4">
+          Let's <span class="text-gradient">connect</span>
+        </h2>
+        <p class="text-lg text-steel font-light max-w-2xl mx-auto">Whether it's a consulting opportunity, a role in strategy or market intelligence, or just a conversation — I'd love to hear from you.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-12 scroll-reveal">
+        <div class="lg:col-span-2 space-y-6">
+          <a href="mailto:kk31122002jr@gmail.com" class="group flex items-start gap-4 p-4 rounded-xl hover:bg-cloud transition-colors">
+            <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+              <span class="iconify w-5 h-5 text-primary" data-icon="lucide:mail"></span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-midnight mb-0.5">Email</div>
+              <span class="text-sm text-steel group-hover:text-primary transition-colors break-all">kk31122002jr@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/kshitizkumar31" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-4 p-4 rounded-xl hover:bg-cloud transition-colors">
+            <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+              <span class="iconify w-5 h-5 text-primary" data-icon="lucide:linkedin"></span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-midnight mb-0.5">LinkedIn</div>
+              <span class="text-sm text-steel group-hover:text-primary transition-colors">/in/kshitizkumar31</span>
+            </div>
+          </a>
+
+          <div class="group flex items-start gap-4 p-4 rounded-xl hover:bg-cloud transition-colors">
+            <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+              <span class="iconify w-5 h-5 text-primary" data-icon="lucide:map-pin"></span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-midnight mb-0.5">Location</div>
+              <p class="text-sm text-steel">Tiruchirappalli, Tamil Nadu, India</p>
+            </div>
+          </div>
+
+          <div class="group flex items-start gap-4 p-4 rounded-xl hover:bg-cloud transition-colors">
+            <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+              <span class="iconify w-5 h-5 text-primary" data-icon="lucide:briefcase"></span>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-midnight mb-0.5">Open To</div>
+              <p class="text-sm text-steel">Consulting · Strategy · Market Intelligence</p>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <div class="text-sm font-semibold text-midnight mb-3">Find me online</div>
+            <div class="flex items-center gap-3">
+              <a href="https://www.linkedin.com/in/kshitizkumar31" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-cloud border border-cool rounded-xl flex items-center justify-center text-steel hover:text-primary hover:border-primary/30 hover:-translate-y-0.5 transition-all" aria-label="LinkedIn">
+                <span class="iconify w-4 h-4" data-icon="lucide:linkedin"></span>
+              </a>
+              <a href="mailto:kk31122002jr@gmail.com" class="w-10 h-10 bg-cloud border border-cool rounded-xl flex items-center justify-center text-steel hover:text-primary hover:border-primary/30 hover:-translate-y-0.5 transition-all" aria-label="Email">
+                <span class="iconify w-4 h-4" data-icon="lucide:mail"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="lg:col-span-3 bg-cloud rounded-2xl border border-cool p-8">
+          <div class="grid sm:grid-cols-2 gap-5 mb-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-midnight mb-2">Name <span class="text-primary">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="Your name" class="w-full px-4 py-3 bg-white border border-cool rounded-xl text-sm text-midnight placeholder:text-steel/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-midnight mb-2">Email <span class="text-primary">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 bg-white border border-cool rounded-xl text-sm text-midnight placeholder:text-steel/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="subject" class="block text-sm font-medium text-midnight mb-2">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="e.g., Consulting opportunity" class="w-full px-4 py-3 bg-white border border-cool rounded-xl text-sm text-midnight placeholder:text-steel/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block text-sm font-medium text-midnight mb-2">Message <span class="text-primary">*</span></label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell me about the opportunity..." class="w-full px-4 py-3 bg-white border border-cool rounded-xl text-sm text-midnight placeholder:text-steel/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="w-full bg-gradient-brand bg-gradient-brand-hover text-white font-semibold py-4 rounded-xl hover:brightness-110 hover:-translate-y-0.5 transition-all hover:shadow-[0_0_20px_rgba(241,90,60,0.4)] flex items-center justify-center gap-2">
+            <span id="submitText">Send Message</span>
+            <span id="submitSpinner" class="hidden"><span class="iconify w-5 h-5 animate-spin" data-icon="lucide:loader-2"></span></span>
+            <span class="iconify w-4 h-4" id="submitArrow" data-icon="lucide:send"></span>
+          </button>
+          <p id="formFeedback" class="text-sm mt-3 text-center hidden"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-midnight text-white/60 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+        <div class="col-span-2 lg:col-span-2">
+          <a href="#hero" class="font-display font-bold text-xl text-white tracking-tight flex items-center gap-2 mb-4">
+            <span class="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center text-white text-sm font-bold">K</span>
+            kshitiz.dev
+          </a>
+          <p class="text-sm leading-relaxed max-w-xs mb-6">IIM Trichy '27 · Growth strategy, market intelligence & data-driven consulting.</p>
+          <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/in/kshitizkumar31" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all" aria-label="LinkedIn">
+              <span class="iconify w-4 h-4" data-icon="lucide:linkedin"></span>
+            </a>
+            <a href="mailto:kk31122002jr@gmail.com" class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all" aria-label="Email">
+              <span class="iconify w-4 h-4" data-icon="lucide:mail"></span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-4">Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#about" class="text-sm hover:text-white transition-colors">About</a></li>
+            <li><a href="#skills" class="text-sm hover:text-white transition-colors">Skills</a></li>
+            <li><a href="#experience" class="text-sm hover:text-white transition-colors">Experience</a></li>
+            <li><a href="#education" class="text-sm hover:text-white transition-colors">Education</a></li>
+            <li><a href="#projects" class="text-sm hover:text-white transition-colors">Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold text-white mb-4">Connect</h4>
+          <ul class="space-y-2.5">
+            <li><a href="mailto:kk31122002jr@gmail.com" class="text-sm hover:text-white transition-colors">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/kshitizkumar31" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-white transition-colors">LinkedIn</a></li>
+            <li><a href="#contact" class="text-sm hover:text-white transition-colors">Contact Form</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs">© 2025 Kshitiz Kumar. All rights reserved.</p>
+        <p class="text-xs flex items-center gap-1">Built with <span class="iconify w-3 h-3 text-primary" data-icon="lucide:heart"></span> on <a href="#" class="text-primary hover:underline">GitHub Pages</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast fixed bottom-6 right-6 z-[100] bg-midnight text-white rounded-xl px-6 py-4 shadow-2xl flex items-center gap-3 max-w-sm">
+    <div id="toastIcon" class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+      <span class="iconify w-4 h-4 text-green-400" data-icon="lucide:check"></span>
+    </div>
+    <div>
+      <div id="toastTitle" class="text-sm font-semibold">Message Sent!</div>
+      <div id="toastMessage" class="text-xs text-white/60">I'll get back to you soon.</div>
+    </div>
+    <button id="toastClose" class="ml-2 text-white/40 hover:text-white transition-colors flex-shrink-0" aria-label="Close"><span class="iconify w-4 h-4" data-icon="lucide:x"></span></button>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="fixed bottom-6 left-6 z-50 w-11 h-11 bg-white border border-cool rounded-xl shadow-lg flex items-center justify-center text-steel hover:text-primary hover:border-primary/30 hover:-translate-y-0.5 transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <span class="iconify w-5 h-5" data-icon="lucide:arrow-up"></span>
+  </button>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const menuBar1 = document.getElementById('menuBar1');
+    const menuBar2 = document.getElementById('menuBar2');
+    const menuBar3 = document.getElementById('menuBar3');
+    let menuOpen = false;
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuOverlay.style.opacity = menuOpen ? '1' : '0';
+      menuOverlay.style.pointerEvents = menuOpen ? 'auto' : 'none';
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+      menuBar1.style.transform = menuOpen ? 'rotate(45deg) translate(4px, 4px)' : '';
+      menuBar2.style.opacity = menuOpen ? '0' : '1';
+      menuBar3.style.transform = menuOpen ? 'rotate(-45deg) translate(4px, -4px)' : '';
+    }
+    menuBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+    mobileNavLinks.forEach(l => l.addEventListener('click', () => { if (menuOpen) toggleMenu(); }));
+
+    const navbar = document.getElementById('navbar');
+    function updateNav() {
+      const heroBottom = document.getElementById('hero').offsetHeight;
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+      navbar.classList.toggle('dark-nav', window.scrollY < heroBottom - 100);
+      const isDark = window.scrollY < heroBottom - 100;
+      document.querySelectorAll('.nav-text').forEach(el => { el.style.color = isDark ? 'rgba(255,255,255,0.8)' : ''; });
+      document.querySelectorAll('.menu-bar').forEach(el => { el.style.background = isDark ? '#fff' : ''; });
+    }
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    function updateActiveLink() {
+      const scrollY = window.scrollY + 120;
+      sections.forEach(s => {
+        if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) {
+          navLinks.forEach(l => {
+            l.classList.remove('active');
+            if (l.getAttribute('href') === '#' + s.id) l.classList.add('active');
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveLink);
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animation = 'fadeInUp 0.8s ease-out forwards'; revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.scroll-reveal').forEach(el => { el.style.opacity = '0'; revealObserver.observe(el); });
+
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const fb = document.getElementById('formFeedback');
+      if (!name || !email || !message) { fb.textContent = 'Please fill in all required fields.'; fb.className = 'text-sm mt-3 text-center text-primary'; fb.classList.remove('hidden'); setTimeout(() => fb.classList.add('hidden'), 4000); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fb.textContent = 'Please enter a valid email.'; fb.className = 'text-sm mt-3 text-center text-primary'; fb.classList.remove('hidden'); setTimeout(() => fb.classList.add('hidden'), 4000); return; }
+      document.getElementById('submitText').textContent = 'Sending...';
+      document.getElementById('submitSpinner').classList.remove('hidden');
+      document.getElementById('submitArrow').classList.add('hidden');
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').style.opacity = '0.7';
+      setTimeout(() => {
+        document.getElementById('submitText').textContent = 'Send Message';
+        document.getElementById('submitSpinner').classList.add('hidden');
+        document.getElementById('submitArrow').classList.remove('hidden');
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('submitBtn').style.opacity = '1';
+        contactForm.reset();
+        document.getElementById('toastTitle').textContent = 'Message Sent!';
+        document.getElementById('toastMessage').textContent = "Thank you, I'll get back to you soon.";
+        document.getElementById('toast').classList.add('show');
+        setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
+      }, 1500);
+    });
+    document.getElementById('toastClose').addEventListener('click', () => document.getElementById('toast').classList.remove('show'));
+
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { btt.style.opacity = window.scrollY > 600 ? '1' : '0'; btt.style.pointerEvents = window.scrollY > 600 ? 'auto' : 'none'; });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    window.addEventListener('load', () => { document.querySelectorAll('.anim-hidden').forEach(el => el.classList.remove('anim-hidden')); });
+  </script>
+</body>
+</html>
